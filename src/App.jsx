@@ -1,7 +1,7 @@
 import "./App.scss";
 
 function App() {
-  return <></>;
+  return <div className="layout-container"></div>;
 }
 
 export default App;

@@ -1,0 +1,49 @@
+@mixin display-one {
+    font-size: $font-display-one;
+    font-weight: $font-weight-bold;
+}
+
+@mixin display-two {
+    font-size: $font-display-two;
+    font-weight: $font-weight-bold;
+}
+
+@mixin display-three {
+    font-size: $font-display-three;
+    font-weight: $font-weight-bold;
+}
+
+@mixin heading-one {
+    font-size: $font-heading-one;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin heading-two {
+    font-size: $font-heading-two;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin heading-three {
+    font-size: $font-heading-three;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin heading-four {
+    font-size: $font-heading-four;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin heading-five {
+    font-size: $font-heading-five;
+    font-weight: $font-weight-semibold;
+}
+
+@mixin body-text {
+    font-size: $font-body;
+    font-weight: $font-weight-regular;
+}
+
+@mixin small-text {
+    font-size: $font-small;
+    font-weight: $font-weight-regular;
+}
