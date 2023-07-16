@@ -1,6 +1,8 @@
 @import "./scss/variables";
 @import "./scss/mixins";
 
+@import "./scss/components/navbar";
+
 *,
 *::before,
 *::after {
@@ -29,4 +31,44 @@ ul {
     width: calc(100% - 2rem);
     max-width: 124rem;
     margin: 0 auto;
+}
+
+.active {
+    color: $color-primary-green !important;
+}
+
+.primary-btn {
+    font-size: $font-body;
+    font-weight: $font-weight-semibold;
+    background-color: $color-primary-blue;
+    color: $color-bg-white;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: $hover-transition;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        &:hover {
+            background-color: $color-bg-white;
+            color: $color-primary-blue;
+        }
+    }
+}
+
+.secondary-btn {
+    font-size: $font-body;
+    font-weight: $font-weight-semibold;
+    background-color: $color-secondary-blue;
+    color: $color-primary-blue;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: $hover-transition;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        &:hover {
+            background-color: $color-primary-blue;
+            color: $color-secondary-blue;
+        }
+    }
 }

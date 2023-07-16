@@ -1,0 +1,125 @@
+.navbar {
+    padding: 3.2rem 0;
+    position: relative;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ul {
+            font-size: $font-small;
+            line-height: 3rem;
+
+            @media only screen and (min-width: $media-query-laptop) {
+                display: flex;
+            }
+
+            li {
+                color: $color-dark-grey;
+                display: flex;
+                align-items: center;
+
+                &:not(:last-child) {
+                    margin-right: 2.1rem;
+
+                }
+
+                svg {
+                    display: none;
+
+                    @media only screen and (min-width: $media-query-laptop) {
+                        display: block;
+                        color: $color-dark-grey;
+                        margin-left: 1rem;
+                    }
+                }
+            }
+
+            a {
+                color: $color-dark-grey;
+
+                &:hover {
+                    color: $color-primary-green;
+                }
+            }
+
+            .navbar-dropdown {
+                background-color: rgb(249, 249, 249);
+                flex-direction: column;
+                position: absolute;
+                top: 7.5rem;
+                padding: 1rem .5rem;
+                border-radius: 1rem;
+                box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        button {
+            padding: 1.6rem 2.2rem;
+        }
+    }
+
+    &__icon {
+        position: relative;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            display: none;
+        }
+
+        &--one,
+        &--two,
+        &--three {
+            border-bottom: 0.2rem solid $color-text-black;
+            width: 2rem;
+            display: block;
+            transition: $hover-transition;
+
+            &:not(:last-child) {
+                margin-bottom: 0.4rem;
+            }
+        }
+
+        &--open {
+            .navbar__icon--one {
+                transform: rotateZ(45deg);
+                position: absolute;
+                top: 50%;
+            }
+
+            .navbar__icon--two {
+                opacity: 0;
+            }
+
+            .navbar__icon--three {
+                transform: rotateZ(-45deg);
+                position: absolute;
+                top: 50%;
+            }
+        }
+    }
+}
+
+.open-menu {
+    background-color: rgb(249, 249, 249);
+    padding: 2rem 0;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        background-color: initial;
+    }
+
+}
+
+.close-menu {
+    display: none;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        display: flex;
+    }
+}
