@@ -1,0 +1,27 @@
+.homepage__clients {
+    background-color: $color-bg-light;
+    padding: 5rem 0 7rem 0;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        padding-top: 40rem;
+    }
+
+    h5 {
+        @include heading-five;
+        color: $color-dark-grey;
+        text-align: center;
+        margin-bottom: 3.3rem;
+    }
+
+    &--logos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            flex-direction: row;
+        }
+    }
+}

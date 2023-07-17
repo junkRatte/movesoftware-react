@@ -13,6 +13,14 @@
         justify-content: space-between;
         align-items: center;
 
+        @media only screen and (min-width: $media-query-laptop) {
+
+            img {
+                width: 150%;
+            }
+        }
+
+
         ul {
             font-size: $font-small;
             line-height: 3rem;
