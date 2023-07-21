@@ -1,15 +1,14 @@
 .homepage__data {
     padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    gap: 8rem;
 
-    .test {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10rem;
-    }
-
-    @media only screen and (min-width: $media-query-laptop) {
+    @media only screen and (min-width: $media-query-desktop) {
         padding: 12rem 0;
+        flex-direction: row;
     }
 
     img {

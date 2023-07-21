@@ -1,7 +1,9 @@
 import ClientSection from "./ClientSection";
 import DataSection from "./DataSection";
+import FeaturesGridSection from "./FeaturesGridSection";
 import FeaturesSection from "./FeaturesSection";
 import LandingSection from "./LandingSection";
+import VideoSection from "./VideoSection";
 
 function Homepage() {
   return (
@@ -10,6 +12,8 @@ function Homepage() {
       <ClientSection />
       <FeaturesSection />
       <DataSection />
+      <VideoSection />
+      <FeaturesGridSection />
     </>
   );
 }
