@@ -1,4 +1,6 @@
 import ClientSection from "./ClientSection";
+import DataSection from "./DataSection";
+import FeaturesSection from "./FeaturesSection";
 import LandingSection from "./LandingSection";
 
 function Homepage() {
@@ -6,6 +8,8 @@ function Homepage() {
     <>
       <LandingSection />
       <ClientSection />
+      <FeaturesSection />
+      <DataSection />
     </>
   );
 }

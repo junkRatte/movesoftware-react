@@ -1,6 +1,7 @@
 .homepage__landing {
     padding-top: 5rem;
     position: relative;
+    z-index: 2;
 
     @media only screen and (min-width: $media-query-laptop) {
         padding-top: 10rem;
@@ -9,8 +10,9 @@
     h1 {
         color: $color-text-black;
         text-align: center;
-        max-width: 75rem;
+        max-width: 78rem;
         margin: 0 auto;
+        hyphens: auto;
         @include display-three;
 
 
@@ -67,8 +69,13 @@
         @media only screen and (min-width: $media-query-laptop) {
             display: block;
             width: 100%;
+            max-width: 133rem;
+            height: 60rem;
             position: absolute;
-            top: 35rem;
+            top: 40rem;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: -1;
         }
     }
 

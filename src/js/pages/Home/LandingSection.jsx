@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGrinHearts } from "@fortawesome/free-solid-svg-icons";
+import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import homeBg from "../../../assets/home-bg.png";
 
 function LandingSection() {
@@ -15,7 +15,7 @@ function LandingSection() {
       <div className="homepage__landing--buttons">
         <Link to="/">
           <button className="secondary-btn">
-            <FontAwesomeIcon icon={faGrinHearts} />
+            <FontAwesomeIcon icon={faCodeCompare} />
             View on Github
           </button>
         </Link>
