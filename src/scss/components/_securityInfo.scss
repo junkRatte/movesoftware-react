@@ -1,0 +1,54 @@
+.security-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 9.7rem;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+
+        @media only screen and (min-width: $media-query-desktop) {
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0;
+        }
+    }
+
+    &__text {
+        h2 {
+            @include heading-two;
+            margin-bottom: 1.4rem;
+            color: $color-text-black
+        }
+
+        p {
+            @include body-text;
+            color: $color-dark-grey;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            flex-direction: row;
+        }
+
+        a {
+            text-align: center;
+            padding: 2rem 8.7rem;
+        }
+    }
+
+    hr {
+        border-top: $color-bg-light;
+        width: 100%;
+        margin: 3.7rem 0;
+    }
+}

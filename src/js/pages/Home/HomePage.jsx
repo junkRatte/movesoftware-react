@@ -1,3 +1,5 @@
+import Pricing from "../../components/Pricing";
+import SecurityInfo from "../../components/SecurityInfo";
 import ClientSection from "./ClientSection";
 import DataSection from "./DataSection";
 import FeaturesGridSection from "./FeaturesGridSection";
@@ -14,6 +16,8 @@ function Homepage() {
       <DataSection />
       <VideoSection />
       <FeaturesGridSection />
+      <Pricing />
+      <SecurityInfo />
     </>
   );
 }
