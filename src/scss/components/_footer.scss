@@ -1,0 +1,77 @@
+.footer {
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            gap: 12.9rem;
+        }
+
+        >div:first-child {
+            margin-right: 5rem;
+
+            ul {
+                display: flex;
+                gap: 2.4rem;
+            }
+        }
+
+        h4 {
+            font-size: $font-heading-one;
+            font-weight: $font-weight-bold;
+            color: $color-text-black;
+            margin-bottom: 2.4rem;
+        }
+
+        h5 {
+            @include heading-five;
+            color: $color-text-black;
+            margin-bottom: 2.7rem;
+        }
+
+        p {
+            @include body-text;
+            color: $color-dark-grey;
+            margin-bottom: 4.8rem;
+            max-width: 29rem;
+        }
+
+        a {
+            @include body-text;
+            color: $color-dark-grey;
+            transition: $hover-transition;
+
+            &:hover {
+                color: $color-primary-blue;
+            }
+        }
+
+        ul {
+            line-height: 4rem;
+
+            svg {
+                background-color: $color-bg-light;
+                color: $color-light-grey;
+                padding: 1rem 1.2rem;
+                border-radius: .7rem;
+                transition: $hover-transition;
+
+                &:hover {
+                    background-color: $color-secondary-blue;
+                    color: $color-primary-blue;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 10rem;
+
+        a {
+            @include small-text;
+            color: $color-dark-grey;
+        }
+    }
+}

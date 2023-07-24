@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./js/components/Navbar";
+import Footer from "./js/components/Footer";
 import BlogsPage from "./js/pages/Blogs/BlogsPage";
 import Homepage from "./js/pages/Home/HomePage";
 import AboutPage from "./js/pages/About/AboutPage";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/studies" element={<StudiesPage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

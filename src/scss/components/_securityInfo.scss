@@ -50,5 +50,10 @@
         border-top: $color-bg-light;
         width: 100%;
         margin: 3.7rem 0;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            margin-top: 7.2rem;
+            margin-bottom: 10rem;
+        }
     }
 }
