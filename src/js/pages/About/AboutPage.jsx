@@ -1,5 +1,6 @@
 import AboutCarouselSection from "./AboutCarouselSection";
 import AboutLandingSection from "./AboutLandingSection";
+import AboutPartners from "./AboutPartners";
 import AboutTeamSection from "./AboutTeamSection";
 
 function AboutPage() {
@@ -8,6 +9,7 @@ function AboutPage() {
       <AboutLandingSection />
       <AboutCarouselSection />
       <AboutTeamSection />
+      <AboutPartners />
     </>
   );
 }

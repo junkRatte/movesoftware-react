@@ -1,0 +1,44 @@
+.aboutpage__partners {
+    padding: 10rem 0;
+    background-color: $color-bg-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        font-size: $font-display-three;
+        color: $color-text-black;
+        max-width: 72rem;
+        margin-bottom: 2rem;
+
+        @media only screen and (min-width: $media-query-tablet) {
+            font-size: $font-display-two;
+        }
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        max-width: 80rem;
+        line-height: 3.5rem;
+        margin-bottom: 6.8rem;
+    }
+
+    &--cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.4rem;
+
+        img {
+            width: 100%;
+            max-width: 39rem;
+            margin-bottom: 2.2rem;
+        }
+
+        p {
+            max-width: 42rem;
+        }
+    }
+}
