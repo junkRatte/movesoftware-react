@@ -1,0 +1,18 @@
+.aboutpage__carousel {
+    text-align: center;
+    background-color: $color-bg-light;
+    padding: 10rem 0 12rem 0;
+
+    h2 {
+        @include display-two;
+        color: $color-text-black;
+        margin-bottom: 3.5rem;
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        margin-bottom: 7.5rem;
+        line-height: 3.5rem;
+    }
+}

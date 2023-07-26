@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCodeCompare } from "@fortawesome/free-solid-svg-icons";
 import homeBg from "../../../assets/home-bg.png";
 
-function LandingSection() {
+function HomeLandingSection() {
   return (
     <section className="homepage__landing">
       <h1>Move is the perfect development tool</h1>
@@ -28,4 +28,4 @@ function LandingSection() {
   );
 }
 
-export default LandingSection;
+export default HomeLandingSection;

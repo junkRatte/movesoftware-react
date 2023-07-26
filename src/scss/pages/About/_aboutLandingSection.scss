@@ -1,0 +1,50 @@
+.aboutpage__landing {
+    padding: 5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13rem;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        padding: 12rem 0;
+        gap: 13rem;
+    }
+
+    img {
+        display: none;
+        width: 100%;
+        height: 61rem;
+        max-width: 60rem;
+        border-radius: 1rem;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            display: block;
+        }
+    }
+
+    h1 {
+        color: $color-text-black;
+        max-width: 50rem;
+        @include display-three;
+        line-height: 7.3rem;
+        margin-bottom: 3rem;
+
+
+        @media only screen and (min-width: $media-query-laptop) {
+            @include display-two;
+        }
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        margin-bottom: 2.9rem;
+        line-height: 3.5rem;
+        max-width: 46rem;
+    }
+
+    a {
+        @include body-text;
+        color: $color-primary-blue;
+    }
+}

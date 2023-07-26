@@ -1,5 +1,13 @@
+import AboutCarouselSection from "./AboutCarouselSection";
+import AboutLandingSection from "./AboutLandingSection";
+
 function AboutPage() {
-  return <div>AboutPage</div>;
+  return (
+    <>
+      <AboutLandingSection />
+      <AboutCarouselSection />
+    </>
+  );
 }
 
 export default AboutPage;

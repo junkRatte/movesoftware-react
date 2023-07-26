@@ -5,13 +5,18 @@
 @import "./scss/components/pricing";
 @import "./scss/components/securityInfo";
 @import "./scss/components/footer";
+@import "./scss/components/imageCarousel";
+@import "./scss/components/imageCarouselMobile";
 
-@import "./scss/pages/Home/landingSection";
+@import "./scss/pages/Home/homeLandingSection";
 @import "./scss/pages/Home/clientSection";
 @import "./scss/pages/Home/featuresSection";
 @import "./scss/pages/Home/dataSection";
 @import "./scss/pages/Home/videoSection";
 @import "./scss/pages/Home/featuresGridSection";
+
+@import "./scss/pages/About/aboutLandingSection";
+@import "./scss/pages/About/aboutCarouselSection";
 
 *,
 *::before,
