@@ -12,13 +12,13 @@ function ImageCarouselMobile() {
   };
 
   return (
-    <div className="carousel-mobile">
+    <>
       <Slider {...settings}>
         <img src={carouselImg1} />
         <img src={carouselImg2} />
         <img src={carouselImg3} />
       </Slider>
-    </div>
+    </>
   );
 }
 
