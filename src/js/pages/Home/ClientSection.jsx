@@ -7,13 +7,15 @@ import spotify from "../../../assets/spotify.png";
 function ClientSection() {
   return (
     <section className="homepage__clients">
-      <h5>We are trusted by the best in the world</h5>
-      <div className="homepage__clients--logos">
-        <img src={goldline} />
-        <img src={aven} />
-        <img src={kanba} />
-        <img src={kyan} />
-        <img src={spotify} />
+      <div className="content-container">
+        <h5>We are trusted by the best in the world</h5>
+        <div className="homepage__clients--logos">
+          <img src={goldline} />
+          <img src={aven} />
+          <img src={kanba} />
+          <img src={kyan} />
+          <img src={spotify} />
+        </div>
       </div>
     </section>
   );

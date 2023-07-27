@@ -1,6 +1,6 @@
 import AboutCarouselSection from "./AboutCarouselSection";
 import AboutLandingSection from "./AboutLandingSection";
-import AboutPartners from "./AboutPartners";
+import AboutPartners from "./AboutPartnersSection";
 import AboutTeamSection from "./AboutTeamSection";
 
 function AboutPage() {

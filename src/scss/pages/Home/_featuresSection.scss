@@ -1,9 +1,12 @@
 .homepage__features {
     padding: 6rem 0;
     position: relative;
+    display: flex;
+    justify-content: center;
 
     @media only screen and (min-width: $media-query-laptop) {
         padding: 20rem 0;
+        justify-content: flex-start;
     }
 
     h2 {

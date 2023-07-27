@@ -34,7 +34,7 @@ function Navbar() {
   }, []);
 
   return (
-    <header>
+    <header className="content-container">
       <nav className="navbar">
         <div className="navbar__row">
           <NavLink to="/">
@@ -76,11 +76,11 @@ function Navbar() {
                 </li>
               </ul>
             ) : (
-              <ul>
+              <ul onMouseLeave={handleLeave}>
                 <li>
                   <NavLink to="/">Home</NavLink>
                 </li>
-                <li onMouseEnter={handleHover} onMouseLeave={handleLeave}>
+                <li onMouseEnter={handleHover}>
                   Pages
                   <FontAwesomeIcon icon={faAngleDown} />
                   {showPages && (

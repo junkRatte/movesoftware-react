@@ -19,6 +19,9 @@
 @import "./scss/pages/About/aboutTeamSection";
 @import "./scss/pages/About/aboutPartners";
 
+@import "./scss/pages/Careers/careersLandingSection";
+@import "./scss/pages/Careers/careersOfferSection";
+
 *,
 *::before,
 *::after {
@@ -46,6 +49,12 @@ ul {
 .layout-container {
     width: calc(100% - 2rem);
     max-width: 144rem;
+    margin: 0 auto;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 124rem;
     margin: 0 auto;
 }
 

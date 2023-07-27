@@ -1,0 +1,46 @@
+.carrerspage__landing {
+    padding: 6rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        padding: 12rem 0;
+        justify-content: space-between;
+    }
+
+    h1 {
+        @include display-two;
+        color: $color-text-black;
+        max-width: 52rem;
+        margin-bottom: 3.3rem;
+        line-height: 7.3rem;
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        line-height: 3.5rem;
+        margin-bottom: 3.5rem;
+        max-width: 46rem;
+    }
+
+    a {
+        color: $color-primary-blue;
+        font-size: $font-body;
+        font-weight: $font-weight-semibold;
+
+        svg {
+            margin-left: 1.5rem;
+            vertical-align: middle;
+        }
+    }
+
+    img {
+        display: none;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            display: block;
+        }
+    }
+}

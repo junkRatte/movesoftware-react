@@ -1,5 +1,13 @@
+import CareersLandingSection from "./CareersLandingSection";
+import CareersOfferSection from "./CareersOfferSection";
+
 function CareersPage() {
-  return <div>CareersPage</div>;
+  return (
+    <>
+      <CareersLandingSection />
+      <CareersOfferSection />
+    </>
+  );
 }
 
 export default CareersPage;
