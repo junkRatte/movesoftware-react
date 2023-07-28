@@ -111,7 +111,7 @@ function Navbar() {
           </div>
         </div>
         <div className={`navbar__row ${openMenu ? "open-menu" : "close-menu"}`}>
-          <NavLink to="/">
+          <NavLink to="/register">
             <button className="primary-btn">Get Started</button>
           </NavLink>
         </div>
