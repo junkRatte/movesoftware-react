@@ -1,13 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/move-logo.svg";
 import { useState, useEffect } from "react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { auth } from "../../firebaseConfig";
+import { onLogout } from "../api/AuthApi";
 
 function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [showPages, setShowPages] = useState(false);
+  const [user, setUser] = useState(null);
+  let navigate = useNavigate();
 
   const handleHover = () => {
     setShowPages(true);
@@ -21,15 +25,29 @@ function Navbar() {
     setOpenMenu(!openMenu);
   };
 
+  const handleLogout = async () => {
+    try {
+      let res = await onLogout();
+      localStorage.removeItem("userEmail", res.user.email);
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1024);
     };
+    const logout = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
 
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      logout();
     };
   }, []);
 
@@ -111,9 +129,15 @@ function Navbar() {
           </div>
         </div>
         <div className={`navbar__row ${openMenu ? "open-menu" : "close-menu"}`}>
-          <NavLink to="/register">
-            <button className="primary-btn">Get Started</button>
-          </NavLink>
+          {!user ? (
+            <NavLink to="/register">
+              <button className="primary-btn">Get Started</button>
+            </NavLink>
+          ) : (
+            <NavLink to="/login" onClick={handleLogout}>
+              <button className="primary-btn">Logout</button>
+            </NavLink>
+          )}
         </div>
       </nav>
     </header>

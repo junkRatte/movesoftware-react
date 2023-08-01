@@ -3,37 +3,32 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import LoginApi from "../../api/AuthApi";
 
 function LoginPage() {
   let navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
-  const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setIsEmailEmpty(false);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (email.trim() === "") {
-      setIsEmailEmpty(true);
+    if (credentials.email.trim() === "" || credentials.password.trim() === "") {
+      setErrorMessage(true);
+      return;
     }
 
-    if (password.trim() === "") {
-      setIsPasswordEmpty(true);
+    try {
+      let res = await LoginApi(credentials.email, credentials.password);
+      localStorage.setItem("userEmail", res.user.email);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -42,7 +37,7 @@ function LoginPage() {
       <div>
         <h2>Sign In to Move</h2>
         <p>Login to manage your account.</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
           <label>Email</label>
           <div className="input-container">
             <FontAwesomeIcon icon={faEnvelope} />
@@ -50,11 +45,13 @@ function LoginPage() {
               className="input-field"
               type="email"
               placeholder="john.smith@email.com"
-              onChange={handleEmailChange}
-              value={email}
+              onChange={(e) =>
+                setCredentials({ ...credentials, email: e.target.value })
+              }
+              value={credentials.email}
             />
           </div>
-          {isEmailEmpty && <p className="input-error">Email is required</p>}
+          {errorMessage && <p className="input-error">Email is required</p>}
           <label>
             Password <span onClick={togglePassword}>Show password</span>
           </label>
@@ -64,13 +61,13 @@ function LoginPage() {
               className="input-field"
               type={showPassword ? "text" : "password"}
               placeholder="Enter password"
-              onChange={handlePasswordChange}
-              value={password}
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
+              value={credentials.password}
             />
           </div>
-          {isPasswordEmpty && (
-            <p className="input-error">Password is required</p>
-          )}
+          {errorMessage && <p className="input-error">Password is required</p>}
           <input type="submit" value="Sign In" />
         </form>
         <p className="register-login">

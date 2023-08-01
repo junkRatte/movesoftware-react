@@ -3,24 +3,14 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RegisterAPI } from "../../api/AuthApi";
 
 function RegisterPage() {
   let navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
-  const [isEmailEmpty, setIsEmailEmpty] = useState(false);
-  const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    setIsEmailEmpty(false);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -30,21 +20,26 @@ function RegisterPage() {
     setIsButtonEnabled(!isButtonEnabled);
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    if (email.trim() === "") {
-      setIsEmailEmpty(true);
+    if (credentials.email.trim() === "" || credentials.password.trim() === "") {
+      setErrorMessage(true);
+      return;
     }
 
-    if (password.trim() === "") {
-      setIsPasswordEmpty(true);
+    try {
+      let res = await RegisterAPI(credentials.email, credentials.password);
+      localStorage.setItem("userEmail", res.user.email);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
     <section className="form">
-      <div onSubmit={handleSubmit}>
+      <div onSubmit={handleRegister}>
         <h2>Create your account</h2>
         <p>Made with love for designers & developers.</p>
         <form>
@@ -55,11 +50,13 @@ function RegisterPage() {
               className="input-field"
               type="email"
               placeholder="john.smith@email.com"
-              onChange={handleEmailChange}
-              value={email}
+              onChange={(e) =>
+                setCredentials({ ...credentials, email: e.target.value })
+              }
+              value={credentials.email}
             />
           </div>
-          {isEmailEmpty && <p className="input-error">Email is required</p>}
+          {errorMessage && <p className="input-error">Email is required</p>}
           <label>
             Password <span onClick={togglePassword}>Show password</span>
           </label>
@@ -69,13 +66,13 @@ function RegisterPage() {
               className="input-field"
               type={showPassword ? "text" : "password"}
               placeholder="Must contain at least 6 characters"
-              onChange={handlePasswordChange}
-              value={password}
+              onChange={(e) =>
+                setCredentials({ ...credentials, password: e.target.value })
+              }
+              value={credentials.password}
             />
           </div>
-          {isPasswordEmpty && (
-            <p className="input-error">Password is required</p>
-          )}
+          {errorMessage && <p className="input-error">Password is required</p>}
           <div className="input-terms">
             <input type="checkbox" onClick={handleButton} />
             <span>I agree to the Terms & Conditions</span>

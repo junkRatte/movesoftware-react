@@ -1,0 +1,15 @@
+.loader {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 4.8rem;
+        color: #377DFF;
+
+        @media only screen and (min-width: 1024px) {
+            font-size: 8rem;
+        }
+    }
+}

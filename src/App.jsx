@@ -9,8 +9,8 @@ import CareersPage from "./js/pages/Careers/CareersPage";
 import PortfolioPage from "./js/pages/Portfolio/PortfolioPage";
 import PricingPage from "./js/pages/Pricing/PricingPage";
 import StudiesPage from "./js/pages/Studies/StudiesPage";
-import LoginPage from "./js/pages/UserAuth/LoginPage";
-import RegisterPage from "./js/pages/UserAuth/RegisterPage";
+import Login from "./js/components/Login";
+import Register from "./js/components/Register";
 
 function App() {
   const location = useLocation();
@@ -28,8 +28,8 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/studies" element={<StudiesPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </main>
       {hideFooterOnPaths.includes(location.pathname) ? null : <Footer />}

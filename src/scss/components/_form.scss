@@ -37,18 +37,16 @@
             font-weight: $font-weight-semibold;
             color: $color-dark-grey;
             margin-bottom: 1.7rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
 
-            &:nth-child(3) {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-
-                span {
-                    font-weight: $font-weight-regular;
-                    cursor: pointer;
-                    color: $color-light-grey;
-                }
+            span {
+                font-weight: $font-weight-regular;
+                cursor: pointer;
+                color: $color-light-grey;
             }
+
         }
 
         .input-container {
@@ -147,7 +145,7 @@
             cursor: pointer;
             transition: $hover-transition;
 
-            &:hover {
+            &:not(:disabled):hover {
                 background-color: $color-secondary-blue;
                 color: $color-primary-blue;
             }
