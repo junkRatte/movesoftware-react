@@ -5,7 +5,7 @@ import { auth } from "../../firebaseConfig";
 import Loader from "./Loader";
 import RegisterPage from "../pages/UserAuth/RegisterPage";
 
-function Login() {
+function Register() {
   const [loading, setLoading] = useState(true);
   let navigate = useNavigate();
   useEffect(() => {
@@ -21,4 +21,4 @@ function Login() {
   return loading ? <Loader /> : <RegisterPage />;
 }
 
-export default Login;
+export default Register;

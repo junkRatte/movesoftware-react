@@ -11,14 +11,22 @@ import PricingPage from "./js/pages/Pricing/PricingPage";
 import StudiesPage from "./js/pages/Studies/StudiesPage";
 import Login from "./js/components/Login";
 import Register from "./js/components/Register";
+import AdminLogin from "./js/pages/Admin/AdminLogin";
+import AdminDashboard from "./js/pages/Admin/AdminDashboard";
 
 function App() {
   const location = useLocation();
-  const hideFooterOnPaths = ["/register", "/login"];
+  const hideFooterOnPaths = [
+    "/register",
+    "/login",
+    "/admin",
+    "/admin-dashboard",
+  ];
+  const hideNavbarOnPaths = ["/admin", "/admin-dashboard"];
 
   return (
     <div className="layout-container">
-      <Navbar />
+      {hideNavbarOnPaths.includes(location.pathname) ? null : <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -30,6 +38,8 @@ function App() {
           <Route path="/studies" element={<StudiesPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </main>
       {hideFooterOnPaths.includes(location.pathname) ? null : <Footer />}
