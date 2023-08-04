@@ -13,6 +13,8 @@ import Login from "./js/components/Login";
 import Register from "./js/components/Register";
 import AdminLogin from "./js/pages/Admin/AdminLogin";
 import AdminDashboard from "./js/pages/Admin/AdminDashboard";
+import CareersPost from "./js/pages/Careers/CareersPost";
+import ScrollPositionWrapper from "./js/components/ScrollPositionWrapper";
 
 function App() {
   const location = useLocation();
@@ -28,19 +30,22 @@ function App() {
     <div className="layout-container">
       {hideNavbarOnPaths.includes(location.pathname) ? null : <Navbar />}
       <main>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/blogs" element={<BlogsPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/studies" element={<StudiesPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/admin" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        </Routes>
+        <ScrollPositionWrapper>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/careers/:title" exact element={<CareersPost />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/studies" element={<StudiesPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          </Routes>
+        </ScrollPositionWrapper>
       </main>
       {hideFooterOnPaths.includes(location.pathname) ? null : <Footer />}
     </div>

@@ -1,0 +1,98 @@
+.careerspage__vacancy {
+    background-color: $color-bg-light;
+    padding: 10rem 0;
+
+    &--title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            @include display-two;
+            color: $color-text-black;
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        p {
+            @include body-text;
+            color: $color-dark-grey;
+            line-height: 3.5rem;
+            text-align: center;
+            margin-bottom: 7.7rem;
+            max-width: 76rem;
+        }
+    }
+
+    &--table {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a.secondary-btn {
+            padding: 2rem 10rem;
+        }
+
+        table {
+            width: 100%;
+            max-width: 88rem;
+            border-spacing: 2.5rem 0;
+            margin: 0 auto 9.2rem auto;
+
+            tr {
+                display: flex;
+
+                th {
+                    font-size: $font-heading-five;
+                    color: $color-text-black;
+                    margin-bottom: 2rem;
+                    text-align: left;
+
+                    &:nth-child(1) {
+                        padding-left: 3rem;
+                    }
+
+                    &:nth-child(2) {
+                        padding-left: 14.5rem;
+                    }
+
+                    &:nth-child(3) {
+                        padding-left: 3rem;
+                    }
+                }
+
+                td {
+                    font-size: $font-body;
+                    color: $color-dark-grey;
+                    background-color: $color-bg-white;
+                    padding: 4.4rem 0 4.4rem 3.2rem;
+                    margin-bottom: 2.5rem;
+
+                    &:first-child {
+                        color: $color-text-black;
+                    }
+
+                    &:nth-child(2) {
+                        padding-left: 15rem;
+                    }
+                }
+
+                td,
+                th {
+                    width: 100%;
+
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        display: none;
+
+                        @media only screen and (min-width: $media-query-tablet) {
+                            display: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

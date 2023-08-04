@@ -1,6 +1,7 @@
 import CareersDreamSection from "./CareersDreamSection";
 import CareersLandingSection from "./CareersLandingSection";
 import CareersOfferSection from "./CareersOfferSection";
+import CareersVacancySection from "./CareersVacancySection";
 
 function CareersPage() {
   return (
@@ -8,6 +9,7 @@ function CareersPage() {
       <CareersLandingSection />
       <CareersOfferSection />
       <CareersDreamSection />
+      <CareersVacancySection />
     </>
   );
 }
