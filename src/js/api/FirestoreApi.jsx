@@ -19,7 +19,17 @@ export const getJobs = async () => {
   const jobs = [];
 
   querySnapshot.forEach((doc) => {
-    jobs.push({ id: doc.id, ...doc.data() });
+    const jobData = doc.data();
+    const requirementsArray = jobData.requirements
+      .split(",")
+      .map((requirement) => requirement.trim());
+
+    jobs.push({
+      id: doc.id,
+      ...jobData,
+      requirements: requirementsArray,
+    });
   });
+
   return jobs;
 };

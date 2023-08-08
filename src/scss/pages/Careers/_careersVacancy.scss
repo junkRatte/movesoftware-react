@@ -32,7 +32,11 @@
         align-items: center;
 
         a.secondary-btn {
-            padding: 2rem 10rem;
+            padding: 2rem;
+
+            @media only screen and (min-width: $media-query-tablet) {
+                padding: 2rem 10rem;
+            }
         }
 
         table {

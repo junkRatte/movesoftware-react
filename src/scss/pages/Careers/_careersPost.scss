@@ -1,0 +1,99 @@
+.careers__bg {
+    background-color: $color-bg-light;
+    padding: 5rem 0;
+
+    @media only screen and (min-width: $media-query-laptop) {
+        padding: 11rem 0;
+    }
+
+    a {
+        @include heading-five;
+        color: $color-primary-blue;
+        max-width: 102rem;
+        margin: 0 auto 3.8rem auto;
+        display: block;
+
+        svg {
+            margin-right: 1.3rem;
+        }
+    }
+
+    .careers__post {
+        width: 100%;
+        max-width: 102rem;
+        margin: 0 auto 9.6rem auto;
+        padding: 3rem 3.5rem;
+        background-color: $color-bg-white;
+        box-shadow: 0 6.3rem 5rem rgba(67, 67, 68, 0.0706);
+
+        @media only screen and (min-width: $media-query-laptop) {
+            border-radius: 1rem;
+            padding: 6rem 7rem;
+        }
+
+        &--title {
+            margin-bottom: 5rem;
+
+            @media only screen and (min-width: $media-query-laptop) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center
+            }
+
+            h2 {
+                @include display-three;
+                margin-bottom: 1.8rem;
+
+                @media only screen and (min-width: $media-query-laptop) {
+                    @include display-two;
+                }
+            }
+
+            p {
+                @include heading-five;
+                color: $color-dark-grey;
+                margin-bottom: 2rem;
+
+                @media only screen and (min-width: $media-query-laptop) {
+                    margin: 0;
+                }
+            }
+
+            button {
+                padding: 2rem 5.4rem;
+            }
+        }
+
+        hr {
+            border-top: $color-bg-light;
+            margin-bottom: 4.7rem;
+        }
+
+        &--body {
+
+            h5 {
+                @include heading-five;
+                color: $color-text-black;
+                margin-bottom: 3.4rem;
+            }
+
+            p {
+                @include body-text;
+                color: $color-dark-grey;
+                line-height: 3.5rem;
+                margin-bottom: 2.4rem;
+            }
+
+            ul {
+                list-style: disc;
+                padding-left: 2.2rem;
+
+                li {
+                    @include body-text;
+                    color: $color-dark-grey;
+                    line-height: 3.5rem;
+                }
+            }
+        }
+    }
+}
