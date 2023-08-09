@@ -1,5 +1,11 @@
+import StudiesLandingSection from "./StudiesLandingSection";
+
 function StudiesPage() {
-  return <div>StudiesPage</div>;
+  return (
+    <>
+      <StudiesLandingSection />
+    </>
+  );
 }
 
 export default StudiesPage;
