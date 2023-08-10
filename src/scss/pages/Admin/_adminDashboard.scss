@@ -1,10 +1,32 @@
 .admin__dashboard {
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 5rem;
 
-    &--form {
+    .tab-buttons {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 2rem;
+
+        button {
+            padding: 1rem;
+            background-color: $color-secondary-blue;
+            color: $color-primary-blue;
+            border: none;
+            cursor: pointer;
+        }
+
+        .active-tab {
+            background-color: $color-primary-blue;
+            color: $color-bg-white;
+        }
+
+    }
+
+    &--jobForm {
         display: flex;
         flex-direction: column;
         gap: 2rem;

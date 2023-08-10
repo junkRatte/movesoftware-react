@@ -1,105 +1,40 @@
 import { useState } from "react";
-import { addJob } from "../../api/FirestoreApi";
+import AdminJobForm from "../../components/AdminJobForm";
+import AdminStudyForm from "../../components/AdminStudyForm";
+import AdminBlogForm from "../../components/AdminBlogForm";
 
 function AdminDashboard() {
-  const initialFormData = {
-    jobTitle: "",
-    jobCategory: "",
-    location: "",
-    description: "",
-    requirements: "",
-  };
-  const [formData, setFormData] = useState(initialFormData);
-  const [isPostSuccessful, setIsPostSuccessful] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const postJobData = async (e) => {
-    e.preventDefault();
-
-    const jobData = { ...formData };
-
-    if (
-      jobData.jobTitle.trim() === "" ||
-      jobData.jobCategory.trim() === "" ||
-      jobData.location.trim() === "" ||
-      jobData.description.trim() === "" ||
-      jobData.location.trim() === ""
-    ) {
-      setErrorMessage(true);
-      return;
-    }
-
-    addJob(jobData)
-      .then((success) => {
-        if (success) {
-          setFormData(initialFormData);
-          setIsPostSuccessful(true);
-        } else
-          (err) => {
-            console.log(err);
-            setIsPostSuccessful(false);
-          };
-      })
-      .catch((err) => {
-        console.log("error adding post", err);
-      });
+  const handleTabChange = (tabIndex) => {
+    setActiveTab(tabIndex);
   };
 
   return (
     <div className="admin__dashboard">
-      <form onSubmit={postJobData} className="admin__dashboard--form">
-        {(isPostSuccessful && (
-          <h1 style={{ color: "green" }}>Job posted successfully</h1>
-        )) ||
-          (errorMessage && <h1 style={{ color: "red" }}>Job post failed</h1>)}
-        <label>Job title</label>
-        <input
-          name="jobTitle"
-          type="text"
-          value={formData.jobTitle}
-          onChange={handleChange}
-        />
-
-        <label>Job category</label>
-        <input
-          name="jobCategory"
-          type="text"
-          value={formData.jobCategory}
-          onChange={handleChange}
-        />
-
-        <label>Location</label>
-        <input
-          name="location"
-          type="text"
-          value={formData.location}
-          onChange={handleChange}
-        />
-
-        <label>Description</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-        />
-
-        <label>Requirements</label>
-        <textarea
-          name="requirements"
-          value={formData.requirements}
-          onChange={handleChange}
-        />
-
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="tab-buttons">
+        <button
+          className={activeTab === 0 ? "active-tab" : ""}
+          onClick={() => handleTabChange(0)}
+        >
+          Job post
+        </button>
+        <button
+          className={activeTab === 1 ? "active-tab" : ""}
+          onClick={() => handleTabChange(1)}
+        >
+          Study post
+        </button>
+        <button
+          className={activeTab === 2 ? "active-tab" : ""}
+          onClick={() => handleTabChange(2)}
+        >
+          Blog post
+        </button>
+      </div>
+      {activeTab === 0 && <AdminJobForm />}
+      {activeTab === 1 && <AdminStudyForm />}
+      {activeTab === 2 && <AdminBlogForm />}
     </div>
   );
 }
