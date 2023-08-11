@@ -14,6 +14,7 @@ function AdminStudyForm() {
     description: "",
     platforms: "",
     businessModel: "",
+    thumbnailText: "",
     image: [],
     logo: [],
   };
@@ -79,6 +80,7 @@ function AdminStudyForm() {
       studyData.description.trim() === "" ||
       studyData.platforms.trim() === "" ||
       studyData.businessModel.trim() === "" ||
+      studyData.thumbnailText.trim() === "" ||
       studyData.image.length === 0 ||
       studyData.logo.length === 0
     ) {
@@ -132,6 +134,14 @@ function AdminStudyForm() {
         name="location"
         type="text"
         value={formData.location}
+        onChange={handleChange}
+      />
+
+      <label>Thumbnail text</label>
+      <input
+        name="thumbnailText"
+        type="text"
+        value={formData.thumbnailText}
         onChange={handleChange}
       />
 
