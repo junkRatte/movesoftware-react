@@ -1,0 +1,101 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { fetchStudyDataWithImages } from "../../api/FirestoreApi";
+import Loader from "../../components/Loader";
+
+function StudiesPost() {
+  const { title } = useParams();
+  const [studyData, setStudyData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStudyData = async () => {
+      try {
+        const studiesData = await fetchStudyDataWithImages();
+        const study = studiesData.find(
+          (study) => study.companyName === decodeURIComponent(title)
+        );
+
+        setStudyData(study);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchStudyData();
+  }, [title]);
+
+  const truncateTextAfterSentences = (text, sentencesToKeep) => {
+    const sentences = text.split(". ");
+    const truncatedSentences = sentences.slice(0, sentencesToKeep);
+    return truncatedSentences.join(". ");
+  };
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <section className="studies__post">
+          <div className="content-container">
+            <div className="studies__post--title">
+              <img src={studyData.logo} alt="Logo" />
+              <h2>{studyData.slogan}</h2>
+              <p>{studyData.thumbnailText}</p>
+              <img src={studyData.image[0]} alt="Thumbnail" id="thumbnail" />
+            </div>
+            <div className="studies__post--wrapper">
+              <div className="company-info">
+                <ul>
+                  <li>
+                    <span>Company</span>
+                    {studyData.companyName}
+                  </li>
+                  <li>
+                    <span>Industry</span>
+                    {studyData.industry}
+                  </li>
+                  <li>
+                    <span>Location</span>
+                    {studyData.location}
+                  </li>
+                  <li>
+                    <span>Size</span>
+                    {studyData.size}
+                  </li>
+                  <li>
+                    <span>Website</span>
+                    <a href={studyData.website}>{studyData.website}</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="company-desc">
+                <h3>{studyData.slogan}</h3>
+                <p>
+                  {studyData.description.slice(
+                    truncateTextAfterSentences(studyData.description, 0)
+                      .length + 0
+                  )}
+                </p>
+                <p>
+                  {studyData.description.slice(
+                    truncateTextAfterSentences(studyData.description, 1)
+                      .length + 1
+                  )}
+                </p>
+                <h4>Platforms</h4>
+                <p>{studyData.platforms}</p>
+                <img src={studyData.image[1]} alt="Thumbnail" id="thumbnail" />
+                <h4>Business model</h4>
+                <p>{studyData.businessModel}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  );
+}
+
+export default StudiesPost;

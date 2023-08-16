@@ -41,7 +41,7 @@ function App() {
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/studies" element={<StudiesPage />} />
-            <Route path="/studies/:title" element={<StudiesPost />} />
+            <Route path="/studies/:title" exact element={<StudiesPost />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/admin" element={<AdminLogin />} />
