@@ -1,5 +1,11 @@
+import BlogsLandingSection from "./BlogsLandingSection";
+
 function BlogsPage() {
-  return <div>BlogsPage</div>;
+  return (
+    <>
+      <BlogsLandingSection />
+    </>
+  );
 }
 
 export default BlogsPage;

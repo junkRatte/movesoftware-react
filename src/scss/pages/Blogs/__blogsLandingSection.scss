@@ -1,0 +1,22 @@
+.blogspage__landing {
+    padding: 10rem 0;
+    background-color: $color-bg-light;
+
+    h2 {
+        @include display-two;
+        color: $color-text-black;
+        max-width: 76rem;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 3.5rem;
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        max-width: 80rem;
+        text-align: center;
+        margin: 0 auto;
+        line-height: 3.5rem;
+    }
+}
