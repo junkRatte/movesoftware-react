@@ -2,21 +2,24 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchStudyDataWithImages } from "../../api/FirestoreApi";
 import Loader from "../../components/Loader";
+import RelatedStudyArticles from "../../components/RelatedStudyArticles";
 
 function StudiesPost() {
   const { title } = useParams();
   const [studyData, setStudyData] = useState(null);
+  const [studiesData, setStudiesData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchStudyData = async () => {
       try {
-        const studiesData = await fetchStudyDataWithImages();
-        const study = studiesData.find(
+        const fetchedStudiesData = await fetchStudyDataWithImages();
+        const study = fetchedStudiesData.find(
           (study) => study.companyName === decodeURIComponent(title)
         );
 
         setStudyData(study);
+        setStudiesData(fetchedStudiesData);
         setIsLoading(false);
       } catch (err) {
         console.log(err);
@@ -31,6 +34,18 @@ function StudiesPost() {
     const truncatedSentences = sentences.slice(0, sentencesToKeep);
     return truncatedSentences.join(". ");
   };
+
+  const currentIndex = studiesData.findIndex(
+    (study) => study.companyName === decodeURIComponent(title)
+  );
+
+  const previousArticles =
+    currentIndex !== -1
+      ? studiesData.slice(
+          Math.max(0, currentIndex - 3),
+          Math.max(0, currentIndex)
+        )
+      : [];
 
   return (
     <div>
@@ -65,7 +80,7 @@ function StudiesPost() {
                     {studyData.size}
                   </li>
                   <li>
-                    <span>Website</span>
+                    <strong>Website</strong>
                     <a href={studyData.website}>{studyData.website}</a>
                   </li>
                 </ul>
@@ -92,6 +107,14 @@ function StudiesPost() {
               </div>
             </div>
           </div>
+        </section>
+      )}
+      {!isLoading && studyData && (
+        <section className="related-articles-container">
+          <RelatedStudyArticles
+            currentArticle={studyData}
+            previousArticles={previousArticles}
+          />
         </section>
       )}
     </div>
