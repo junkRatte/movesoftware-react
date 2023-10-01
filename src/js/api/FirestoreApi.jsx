@@ -3,6 +3,7 @@ import { firestore } from "../../firebaseConfig";
 
 const dbRefJobs = collection(firestore, "jobs");
 const dbRefStudies = collection(firestore, "studies");
+const dbRefBlogs = collection(firestore, "blogs");
 
 export const addJob = (jobObject) => {
   return addDoc(dbRefJobs, jobObject)
@@ -56,4 +57,27 @@ export const fetchStudyDataWithImages = async () => {
   });
 
   return studyDataArray;
+};
+
+export const addBlog = (blogObject) => {
+  return addDoc(dbRefBlogs, blogObject)
+    .then(() => {
+      return true;
+    })
+    .catch((err) => {
+      console.log(err);
+      return false;
+    });
+};
+
+export const fetchBlogDataWithImages = async () => {
+  const querySnapshot = await getDocs(dbRefBlogs);
+  const blogDataArray = [];
+
+  querySnapshot.forEach((doc) => {
+    const blogData = doc.data();
+    blogDataArray.push(blogData);
+  });
+
+  return blogDataArray;
 };
