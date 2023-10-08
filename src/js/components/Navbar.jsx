@@ -72,25 +72,39 @@ function Navbar() {
             {isMobile ? (
               <ul>
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink onClick={toggleMenu} to="/">
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/about">About us</NavLink>
+                  <NavLink onClick={toggleMenu} to="/about">
+                    About us
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/careers">Careers</NavLink>
+                  <NavLink onClick={toggleMenu} to="/careers">
+                    Careers
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/studies">Studies</NavLink>
+                  <NavLink onClick={toggleMenu} to="/studies">
+                    Studies
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/pricing">Pricing</NavLink>
+                  <NavLink onClick={toggleMenu} to="/pricing">
+                    Pricing
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/blogs">Blogs</NavLink>
+                  <NavLink onClick={toggleMenu} to="/blogs">
+                    Blogs
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/portfolio">Portfolio</NavLink>
+                  <NavLink onClick={toggleMenu} to="/portfolio">
+                    Portfolio
+                  </NavLink>
                 </li>
               </ul>
             ) : (

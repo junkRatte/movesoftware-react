@@ -11,6 +11,7 @@ function AdminBlogForm() {
     authorName: "",
     authorLastName: "",
     createdAt: Date(),
+    thumbnailText: "",
     thumbnailImage: [],
     image: [],
     description: "",
@@ -77,6 +78,7 @@ function AdminBlogForm() {
       blogData.industry.trim() === "" ||
       blogData.likes.trim() === "" ||
       blogData.description.trim() === "" ||
+      blogData.thumbnailText.trim() === "" ||
       blogData.thumbnailImage.length === 0 ||
       blogData.image.length === 0
     ) {
@@ -155,6 +157,14 @@ function AdminBlogForm() {
       <textarea
         name="description"
         value={formData.description}
+        onChange={handleChange}
+      />
+
+      <label>Thumbnail text</label>
+      <input
+        name="thumbnailText"
+        type="text"
+        value={formData.thumbnailText}
         onChange={handleChange}
       />
 

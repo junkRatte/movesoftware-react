@@ -1,0 +1,119 @@
+.blogs__post {
+    padding: 5rem 0;
+
+    &--wrapper {
+        @media only screen and (min-width: $media-query-tablet) {
+            display: flex;
+            align-items: center;
+            column-gap: 5rem;
+        }
+
+        &-text {
+
+            &>div:nth-child(1) {
+                display: flex;
+                align-items: center;
+
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:nth-child(1) {
+                        background-color: $color-dark-grey;
+                        border-radius: 2rem;
+                        width: 20rem;
+                        height: 5.4rem;
+
+                        p {
+                            font-size: $font-small;
+                            font-weight: $font-weight-semibold;
+
+                            &:nth-child(1) {
+                                color: $color-bg-white;
+                                margin-right: 1rem;
+                            }
+
+                            &:nth-child(3) {
+                                color: $color-bg-white;
+                                margin-left: 1rem;
+                            }
+                        }
+
+                        svg {
+                            color: $color-bg-white;
+                            font-size: $font-small;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        background-color: $color-secondary-blue;
+                        border-radius: 2rem;
+                        height: 3.5rem;
+                        width: 7.5rem;
+                        margin-left: 3rem;
+
+                        p {
+                            color: $color-primary-blue;
+                            font-size: $font-small;
+                            font-weight: $font-weight-semibold;
+                        }
+
+                        svg {
+                            color: $color-primary-blue;
+                            margin-right: .5rem;
+                            font-size: $font-small;
+                        }
+                    }
+                }
+            }
+
+            h2 {
+                @include display-three;
+                color: $color-text-black;
+                margin-top: 3.8rem;
+                margin-bottom: 5rem;
+                max-width: 70rem;
+            }
+
+            h5 {
+                color: $color-text-black;
+                font-size: $font-body;
+                font-weight: $font-weight-semibold;
+            }
+
+            p {
+                color: $color-dark-grey;
+                font-size: $font-small;
+                font-weight: $font-weight-semibold;
+            }
+        }
+
+        &-image {
+            display: none;
+
+            @media only screen and (min-width: $media-query-tablet) {
+                display: block;
+                width: 100%;
+                border-radius: 1.5rem;
+            }
+        }
+    }
+
+    &--description {
+        margin-top: 10rem;
+
+        p {
+            font-size: $font-body;
+            color: $color-dark-grey;
+            line-height: 3.5rem;
+            margin-bottom: 6rem;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 1rem;
+        }
+    }
+}
