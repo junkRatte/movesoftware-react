@@ -1,5 +1,11 @@
+import PortfolioLandingSection from "./PortfolioLandingSection";
+
 function PortfolioPage() {
-  return <div>PortfolioPage</div>;
+  return (
+    <>
+      <PortfolioLandingSection />
+    </>
+  );
 }
 
 export default PortfolioPage;
