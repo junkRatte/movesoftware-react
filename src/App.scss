@@ -38,6 +38,7 @@
 @import "./scss/pages/Blogs/blogsPost";
 
 @import "./scss/pages/Portfolio/portfolioLandingSection";
+@import "./scss/pages/Portfolio/portfolioGridSection";
 
 @import "./scss/pages/Admin/adminLogin";
 @import "./scss/pages/Admin/adminDashboard";
@@ -80,6 +81,12 @@ ul {
 
 .active {
     color: $color-primary-green !important;
+}
+
+.active-filter {
+    color: $color-primary-blue;
+    background-color: $color-secondary-blue;
+    border-radius: 2rem;
 }
 
 .primary-btn {

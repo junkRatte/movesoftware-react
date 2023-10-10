@@ -1,20 +1,20 @@
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useState } from "react";
 import { storage } from "../../firebaseConfig";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { addBlog } from "../api/FirestoreApi";
+import { addPortfolio } from "../api/FirestoreApi";
 
-function AdminBlogForm() {
+function AdminPortfolioForm() {
   const initialFormData = {
-    blogName: "",
-    industry: "",
-    likes: "",
-    authorName: "",
-    authorLastName: "",
-    createdAt: Date(),
-    thumbnailText: "",
+    projectName: "",
+    category: "",
     thumbnailImage: [],
-    image: [],
+    images: [],
+    projectDesc: "",
     description: "",
+    designers: "",
+    companyName: "",
+    partners: "",
+    awards: "",
   };
   const [formData, setFormData] = useState(initialFormData);
   const [isPostSuccessful, setIsPostSuccessful] = useState(false);
@@ -34,7 +34,7 @@ function AdminBlogForm() {
 
     const uploadedImageUrls = await Promise.all(
       selectedImages.map(async (image) => {
-        const storageRefImg = ref(storage, `blogImages/${image.name}`);
+        const storageRefImg = ref(storage, `portfolioImages/${image.name}`);
         await uploadBytes(storageRefImg, image);
         return getDownloadURL(storageRefImg);
       })
@@ -42,7 +42,7 @@ function AdminBlogForm() {
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      image: uploadedImageUrls,
+      images: uploadedImageUrls,
     }));
   };
 
@@ -66,27 +66,28 @@ function AdminBlogForm() {
     }));
   };
 
-  const postBlogData = async (e) => {
+  const postPortfolioData = async (e) => {
     e.preventDefault();
 
-    const blogData = { ...formData };
+    const portfolioData = { ...formData };
 
     if (
-      blogData.authorName.trim() === "" ||
-      blogData.authorLastName.trim() === "" ||
-      blogData.blogName.trim() === "" ||
-      blogData.industry.trim() === "" ||
-      blogData.likes.trim() === "" ||
-      blogData.description.trim() === "" ||
-      blogData.thumbnailText.trim() === "" ||
-      blogData.thumbnailImage.length === 0 ||
-      blogData.image.length === 0
+      portfolioData.projectName.trim() === "" ||
+      portfolioData.category.trim() === "" ||
+      portfolioData.thumbnailImage.length === 0 ||
+      portfolioData.images.length === 0 ||
+      portfolioData.projectDesc.trim() === "" ||
+      portfolioData.description.trim() === "" ||
+      portfolioData.designers.trim() === "" ||
+      portfolioData.companyName.trim() === "" ||
+      portfolioData.partners.trim() === "" ||
+      portfolioData.awards.trim() === ""
     ) {
       setErrorMessage(true);
       return;
     }
 
-    addBlog(blogData)
+    addPortfolio(portfolioData)
       .then((success) => {
         if (success) {
           setFormData(initialFormData);
@@ -101,70 +102,84 @@ function AdminBlogForm() {
           };
       })
       .catch((err) => {
-        console.log("error adding blog", err);
+        console.log("error adding portfolio ", err);
       });
   };
 
   return (
-    <form onSubmit={postBlogData} className="admin__dashboard--jobForm">
+    <form onSubmit={postPortfolioData} className="admin__dashboard--jobForm">
       {(isPostSuccessful && (
-        <h1 style={{ color: "green" }}>Blog posted successfully</h1>
+        <h1 style={{ color: "green" }}>Portfolio posted successfully</h1>
       )) ||
-        (errorMessage && <h1 style={{ color: "red" }}>Blog post failed</h1>)}
-      <label>Blog name</label>
+        (errorMessage && (
+          <h1 style={{ color: "red" }}>Portfolio post failed</h1>
+        ))}
+      <label>Portfolio name</label>
       <input
-        name="blogName"
+        name="projectName"
         type="text"
-        value={formData.blogName}
+        value={formData.projectName}
         onChange={handleChange}
       />
 
-      <label>Industry</label>
+      <label>Category</label>
       <input
-        name="industry"
+        name="category"
         type="text"
-        value={formData.industry}
+        value={formData.category}
         onChange={handleChange}
       />
 
-      <label>Likes</label>
+      <label>Project description</label>
       <input
-        name="likes"
+        name="projectDesc"
         type="text"
-        value={formData.likes}
-        onChange={handleChange}
-      />
-
-      <label>Author name</label>
-      <input
-        name="authorName"
-        type="text"
-        value={formData.authorName}
-        onChange={handleChange}
-      />
-
-      <label>Author last name</label>
-      <input
-        name="authorLastName"
-        type="text"
-        value={formData.authorLastName}
+        value={formData.projectDesc}
         onChange={handleChange}
       />
 
       <label>Description</label>
       <textarea
         name="description"
+        type="text"
         value={formData.description}
         onChange={handleChange}
       />
 
-      <label>Thumbnail text</label>
+      <label>Designers</label>
       <input
-        name="thumbnailText"
+        name="designers"
         type="text"
-        value={formData.thumbnailText}
+        value={formData.designers}
         onChange={handleChange}
       />
+
+      <label>Company name</label>
+      <input
+        name="companyName"
+        type="text"
+        value={formData.companyName}
+        onChange={handleChange}
+      />
+
+      <label>Partners</label>
+      <input
+        name="partners"
+        type="text"
+        value={formData.partners}
+        onChange={handleChange}
+      />
+
+      <label>Awards</label>
+      <input
+        name="awards"
+        type="text"
+        value={formData.awards}
+        onChange={handleChange}
+      />
+
+      <label>Images</label>
+      <input name="images" type="file" onChange={handleImageChange} multiple />
 
       <label>Thumbnail image</label>
       <input
@@ -173,12 +188,9 @@ function AdminBlogForm() {
         onChange={handleThumbnailChange}
       />
 
-      <label>Image</label>
-      <input name="image" type="file" onChange={handleImageChange} />
-
       <input type="submit" value="Submit" />
     </form>
   );
 }
 
-export default AdminBlogForm;
+export default AdminPortfolioForm;

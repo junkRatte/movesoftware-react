@@ -17,6 +17,7 @@ import CareersPost from "./js/pages/Careers/CareersPost";
 import ScrollPositionWrapper from "./js/components/ScrollPositionWrapper";
 import StudiesPost from "./js/pages/Studies/StudiesPost";
 import BlogsPost from "./js/pages/Blogs/BlogsPost";
+import PortfolioProject from "./js/pages/Portfolio/PortfolioProject";
 
 function App() {
   const location = useLocation();
@@ -41,6 +42,11 @@ function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/careers/:title" exact element={<CareersPost />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route
+              path="/portfolio/project/:title"
+              exact
+              element={<PortfolioProject />}
+            />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/studies" element={<StudiesPage />} />
             <Route path="/studies/:title" exact element={<StudiesPost />} />

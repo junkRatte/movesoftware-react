@@ -4,6 +4,7 @@ import { firestore } from "../../firebaseConfig";
 const dbRefJobs = collection(firestore, "jobs");
 const dbRefStudies = collection(firestore, "studies");
 const dbRefBlogs = collection(firestore, "blogs");
+const dbRefPortfolios = collection(firestore, "portfolios");
 
 export const addJob = (jobObject) => {
   return addDoc(dbRefJobs, jobObject)
@@ -80,4 +81,27 @@ export const fetchBlogDataWithImages = async () => {
   });
 
   return blogDataArray;
+};
+
+export const addPortfolio = (portfolioObject) => {
+  return addDoc(dbRefPortfolios, portfolioObject)
+    .then(() => {
+      return true;
+    })
+    .catch((err) => {
+      console.log(err);
+      return false;
+    });
+};
+
+export const fetchPortfolioDataWithImages = async () => {
+  const querySnapshot = await getDocs(dbRefPortfolios);
+  const portfolioDataArray = [];
+
+  querySnapshot.forEach((doc) => {
+    const portfolioData = doc.data();
+    portfolioDataArray.push(portfolioData);
+  });
+
+  return portfolioDataArray;
 };
