@@ -1,6 +1,6 @@
-import PortfolioContactSection from "./PortfolioContactSection";
 import PortfolioGridSection from "./PortfolioGridSection";
 import PortfolioLandingSection from "./PortfolioLandingSection";
+import PortfolioContactSection from "./PortfolioContactSection";
 
 function PortfolioPage() {
   return (

@@ -2,15 +2,12 @@ function PortfolioContactSection() {
   return (
     <section className="portfoliopage__contact">
       <div className="content-container">
-        <h2>Get great articles direct to your inbox</h2>
+        <h2>Are you ready to work with us?</h2>
         <p>
-          The latest Move news, articles and resources, sent straight to your
-          inbox every month.
+          Make a request right now and we will discuss the details of the order
+          with you!
         </p>
-        <div className="portfoliopage__contact--input">
-          <input type="email" placeholder="Email Address" />
-          <button>Subscribe</button>
-        </div>
+        <button>Get in touch</button>
       </div>
     </section>
   );

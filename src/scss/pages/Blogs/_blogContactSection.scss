@@ -1,0 +1,50 @@
+.blogpage__contact {
+    background-color: $color-bg-light;
+    padding: 10rem 0;
+    text-align: center;
+
+    h2 {
+        @include display-three;
+        color: $color-text-black;
+        margin-bottom: 3.5rem;
+    }
+
+    p {
+        @include body-text;
+        color: $color-dark-grey;
+        margin-bottom: 4.5rem;
+    }
+
+    &--input {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        input {
+            width: 100%;
+            max-width: 53rem;
+            padding: 2rem 2.5rem;
+            border: none;
+            border-radius: .5rem;
+            color: $color-primary-blue;
+            font-weight: $font-weight-semibold;
+            font-size: $font-body;
+
+            &::placeholder {
+                @include body-text;
+                color: $color-light-grey;
+            }
+        }
+
+        button {
+            font-size: $font-body;
+            font-weight: $font-weight-semibold;
+            background-color: $color-primary-blue;
+            color: $color-bg-white;
+            padding: 2rem 5.5rem;
+            border: none;
+            border-radius: .5rem;
+        }
+    }
+}
