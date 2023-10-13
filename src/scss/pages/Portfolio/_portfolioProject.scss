@@ -1,0 +1,125 @@
+.project__post {
+    &--title {
+        text-align: center;
+        padding: 12rem 0;
+
+        p:nth-child(1) {
+            font-size: $font-small;
+            font-weight: $font-weight-semibold;
+            color: $color-primary-blue;
+            background-color: $color-secondary-blue;
+            max-width: 13rem;
+            padding: 0.8rem 2rem;
+            margin: 0 auto 3.5rem auto;
+            border-radius: 2rem;
+        }
+
+        h2 {
+            @include display-three;
+            color: $color-text-black;
+            margin-bottom: 3.5rem;
+
+            @media only screen and (min-width: $media-query-tablet) {
+                @include display-two;
+            }
+        }
+
+        p:nth-child(3) {
+            font-size: $font-body;
+            font-weight: $font-weight-semibold;
+            color: $color-dark-grey;
+            line-height: 3.5rem;
+            max-width: 80rem;
+            margin: 0 auto 6rem auto;
+        }
+
+        img {
+            width: 100%;
+            max-height: 65rem;
+            box-shadow: 0 6.3rem 5rem rgba(67, 67, 68, 0.0706);
+        }
+    }
+
+    &--columns {
+        padding: 11rem 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        @media only screen and (min-width: $media-query-laptop) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            width: 100%;
+
+            img {
+                width: 100%;
+                max-width: 60rem;
+            }
+        }
+
+        .right-column {
+            width: 100%;
+
+            h2 {
+                @include heading-one;
+                color: $color-text-black;
+                margin-bottom: 2.5rem;
+            }
+
+            p {
+                @include body-text;
+                color: $color-dark-grey;
+                line-height: 3.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            hr {
+                height: .1rem;
+                background: $color-bg-light;
+                border: none;
+                margin: 4.5rem 0;
+            }
+
+            .list-one {
+                display: flex;
+                gap: 4rem;
+            }
+
+            .list-two {
+                display: flex;
+                align-items: center;
+                gap: 7rem;
+
+                ul {
+                    display: flex;
+                    gap: 5rem;
+                }
+            }
+
+            span {
+                font-size: $font-body;
+                font-weight: $font-weight-semibold;
+                color: $color-text-black;
+            }
+
+            ul {
+                line-height: 5rem;
+
+                li {
+                    font-size: $font-body;
+                    color: $color-dark-grey;
+
+                    svg:hover {
+                        color: $color-primary-blue;
+                    }
+                }
+            }
+        }
+    }
+}
