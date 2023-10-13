@@ -1,0 +1,19 @@
+.custom-plan-btn {
+    display: flex;
+    justify-content: center;
+
+    a {
+        font-size: $font-body;
+        font-weight: $font-weight-semibold;
+        color: $color-primary-blue;
+        background-color: $color-secondary-blue;
+        padding: 2rem 10rem;
+        border-radius: .5rem;
+        transition: $hover-transition;
+
+        &:hover {
+            color: $color-secondary-blue;
+            background-color: $color-primary-blue;
+        }
+    }
+}

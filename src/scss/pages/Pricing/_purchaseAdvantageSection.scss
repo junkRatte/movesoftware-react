@@ -1,0 +1,55 @@
+.pricingpage__advantage {
+    margin-top: 12rem;
+    padding: 10rem 0;
+    background-color: $color-bg-light;
+
+    h2 {
+        @include display-two;
+        text-align: center;
+        max-width: 92rem;
+        margin: 0 auto;
+        margin-bottom: 7.5rem;
+    }
+
+    &--grid {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 3.2rem;
+
+        @media only screen and (min-width: $media-query-tablet) {
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .grid-card {
+            background-color: $color-bg-white;
+            padding: 3rem;
+            max-width: 39rem;
+            box-shadow: 0 6rem 5rem rgba(67, 67, 68, 0.0706);
+
+            @media only screen and (min-width: $media-query-mobile-large) {
+                border-radius: 2rem;
+            }
+
+            img {
+                max-width: 8rem;
+                margin-bottom: 3rem;
+            }
+
+            h3 {
+                font-size: $font-heading-three;
+                font-weight: $font-weight-bold;
+                color: $color-text-black;
+                margin-bottom: 2.1rem;
+            }
+
+            p {
+                @include body-text;
+                line-height: 3rem;
+                color: $color-dark-grey;
+            }
+        }
+    }
+}
