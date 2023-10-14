@@ -1,4 +1,5 @@
 import CustomPlanBtn from "../../components/CustomPlanBtn";
+import FaqSection from "../../components/FaqSection";
 import Pricing from "../../components/Pricing";
 import PurchaseAdvantageSection from "./PurchaseAdvantageSection";
 
@@ -8,6 +9,7 @@ function PricingPage() {
       <Pricing />
       <CustomPlanBtn />
       <PurchaseAdvantageSection />
+      <FaqSection />
     </>
   );
 }

@@ -10,6 +10,7 @@
 @import "./scss/components/loader";
 @import "./scss/components/jobApplyForm";
 @import "./scss/components/customPlanBtn";
+@import "./scss/components/faqSection";
 
 @import "./scss/pages/Home/homeLandingSection";
 @import "./scss/pages/Home/clientSection";
@@ -93,6 +94,15 @@ ul {
     color: $color-primary-blue;
     background-color: $color-secondary-blue;
     border-radius: 2rem;
+}
+
+.active-question {
+    color: $color-primary-blue !important;
+}
+
+.carret-question {
+    color: $color-primary-blue;
+    transform: rotateZ(90deg);
 }
 
 .primary-btn {

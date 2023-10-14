@@ -7,7 +7,7 @@ import iconLayout from "../../../assets/icon-layout.png";
 
 function PurchaseAdvantageSection() {
   return (
-    <div className="pricingpage__advantage">
+    <section className="pricingpage__advantage">
       <h2>View all of our advantages before purchasing</h2>
       <div className="pricingpage__advantage--grid">
         <div className="grid-card">
@@ -59,7 +59,7 @@ function PurchaseAdvantageSection() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
