@@ -106,6 +106,11 @@ function Navbar() {
                     Portfolio
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink onClick={toggleMenu} to="/contact">
+                    Contact
+                  </NavLink>
+                </li>
               </ul>
             ) : (
               <ul onMouseLeave={handleLeave}>
@@ -128,6 +133,11 @@ function Navbar() {
                       </li>
                       <li>
                         <NavLink to="/pricing">Pricing</NavLink>
+                      </li>
+                      <li>
+                        <NavLink onClick={toggleMenu} to="/contact">
+                          Contact
+                        </NavLink>
                       </li>
                     </ul>
                   )}

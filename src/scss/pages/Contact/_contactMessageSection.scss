@@ -1,0 +1,75 @@
+.contactpage__message {
+    padding: 12rem 0;
+
+    &--title {
+        text-align: center;
+        margin-bottom: 5.5rem;
+
+        h2 {
+            @include display-three;
+            color: $color-text-black;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            font-size: $font-body;
+            line-height: 3.5rem;
+            color: $color-dark-grey;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+    }
+
+    &--form {
+        display: flex;
+        justify-content: center;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3.2rem;
+
+            &>div {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4.2rem;
+
+
+                input {
+                    padding: 2rem 2.5rem;
+                    border: .2rem solid $color-bg-light;
+                    max-width: 39rem;
+                    font-size: $font-body;
+                    color: $color-dark-grey;
+                    outline: none;
+
+                    &::placeholder {
+                        color: $color-light-grey;
+                    }
+                }
+
+
+            }
+
+            textarea {
+                width: 100%;
+                max-width: 82rem;
+                height: 29rem;
+                padding: 2rem 2.5rem;
+                font-size: $font-body;
+                color: $color-dark-grey;
+                outline: none;
+                border: .2rem solid $color-bg-light;
+
+                &::placeholder {
+                    color: $color-light-grey;
+                }
+            }
+
+            button {
+                padding: 2rem 10rem;
+            }
+        }
+    }
+}
