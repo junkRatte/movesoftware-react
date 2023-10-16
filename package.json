@@ -2,7 +2,7 @@
   "name": "movesoftware-react",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://junkratte.github.io/move-software/",
+  "homepage": "https://junkratte.github.io/movesoftware-react/",
   "type": "module",
   "scripts": {
     "dev": "vite",
