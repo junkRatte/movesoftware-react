@@ -10,7 +10,7 @@ const LazyLoad = React.lazy(() => import("./App.jsx"));
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Suspense fallback={<Loader />}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename="/movesoftware-react/">
         <LazyLoad />
       </BrowserRouter>
     </Suspense>
