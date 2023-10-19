@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 
 import { Suspense } from "react";
@@ -7,12 +7,13 @@ import Loader from "./js/components/Loader.jsx";
 
 const LazyLoad = React.lazy(() => import("./App.jsx"));
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={<Loader />}>
       <BrowserRouter basename="/movesoftware-react/">
         <LazyLoad />
       </BrowserRouter>
     </Suspense>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
