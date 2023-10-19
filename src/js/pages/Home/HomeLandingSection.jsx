@@ -7,6 +7,7 @@ function HomeLandingSection() {
   return (
     <section className="homepage__landing">
       <div className="content-container">
+        <h1>test</h1>
         <h1>Move is the perfect development tool</h1>
         <p>
           We have created software for each employee of your team to help them
