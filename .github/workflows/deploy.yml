@@ -58,23 +58,20 @@ jobs:
 
     steps:
       - name: Decrypt secrets
-        uses: actions/secret-manager@v0.6.0
+        uses: benammann/git-secrets-get-secret-action@v1
         with:
-          secrets: |
-            VITE_REACT_APP_FIREBASE_API_KEY
-            VITE_REACT_APP_FIREBASE_APP_ID
-            VITE_REACT_APP_FIREBASE_AUTH_DOMAIN
-            VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID
-            VITE_REACT_APP_FIREBASE_PROJECT_ID
-            VITE_REACT_APP_FIREBASE_STORAGE_BUCKET
+          name: ${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}
+          decryptSecretName: ${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}
+          decryptSecretValue: ${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}
 
       - name: Check Secrets
         run: |
           echo "API Key: ${{ env.VITE_REACT_APP_FIREBASE_API_KEY }}"
-
-      - name: Check Secrets
-        run: |
-          echo "API Key: $VITE_REACT_APP_FIREBASE_API_KEY"
+          echo "App ID: ${{ env.VITE_REACT_APP_FIREBASE_APP_ID }}"
+          echo "Auth Domain: ${{ env.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN }}"
+          echo "Messaging Sender ID: ${{ env.VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}"
+          echo "Project ID: ${{ env.VITE_REACT_APP_FIREBASE_PROJECT_ID }}"
+          echo "Storage Bucket: ${{ env.VITE_REACT_APP_FIREBASE_STORAGE_BUCKET }}"
 
       - name: Download artifact
         uses: actions/download-artifact@v2
