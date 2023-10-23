@@ -59,7 +59,7 @@ jobs:
     steps:
       - name: Check Secrets
         run: |
-          echo "API Key: ${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}"
+          echo "API Key: $VITE_REACT_APP_FIREBASE_API_KEY"
 
       - name: Download artifact
         uses: actions/download-artifact@v2
