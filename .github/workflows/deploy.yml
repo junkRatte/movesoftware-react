@@ -63,6 +63,7 @@ jobs:
           if [ "$VITE_REACT_APP_FIREBASE_API_KEY" == "AIzaSyCY-B7aHW4rRccwMTZJmIQu628D1Rfr_nM"]
           then
             echo "values match"
+          fi
 
       - name: Download artifact
         uses: actions/download-artifact@v2
