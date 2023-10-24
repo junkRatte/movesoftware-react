@@ -59,11 +59,7 @@ jobs:
     steps:
       - name: Check Secrets
         run: |
-          echo "API Key: $VITE_REACT_APP_FIREBASE_API_KEY"
-          if [ "$VITE_REACT_APP_FIREBASE_API_KEY" == "AIzaSyCY-B7aHW4rRccwMTZJmIQu628D1Rfr_nM" ]
-          then
-            echo "values match"
-          fi
+          echo "API Key: ${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}"
 
       - name: Download artifact
         uses: actions/download-artifact@v2
