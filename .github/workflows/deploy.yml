@@ -46,7 +46,7 @@ jobs:
       - name: Check Firebase Configuration
         run: |
           firebaseConfigPath=$(find . -name firebaseConfig.js)
-          node -e "const { auth, storage, firestore } = require('$firebaseConfigPath'); console.log(auth, storage, firestore);"
+          node -e "const { auth, storage, firestore } = import('$firebaseConfigPath'); console.log(auth, storage, firestore);"
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
