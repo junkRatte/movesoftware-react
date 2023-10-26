@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import "./firebaseConfig";
 
 import { Suspense } from "react";
 import Loader from "./js/components/Loader.jsx";
