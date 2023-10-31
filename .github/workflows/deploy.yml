@@ -17,6 +17,9 @@ jobs:
           submodules: "recursive"
           fetch-depth: 0
 
+      - name: Copy Firebase Config
+        run: cp firebaseConfig.json $GITHUB_WORKSPACE
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -24,14 +27,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Check Secrets
-        run: |
-          if [[ -n "${{ secrets.VITE_REACT_APP_FIREBASE_API_KEY }}" && -n "${{ secrets.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN }}" && -n "${{ secrets.VITE_REACT_APP_FIREBASE_PROJECT_ID }}" && -n "${{ secrets.VITE_REACT_APP_FIREBASE_STORAGE_BUCKET }}" && -n "${{ secrets.VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}" && -n "${{ secrets.VITE_REACT_APP_FIREBASE_APP_ID }}" ]]; then
-            echo "Secrets are present"
-          else
-            echo "Secrets are missing"
-          fi
 
       - name: Set Firebase environment variables
         run: |
