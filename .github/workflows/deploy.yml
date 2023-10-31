@@ -17,9 +17,6 @@ jobs:
           submodules: "recursive"
           fetch-depth: 0
 
-      - name: Copy Firebase Config
-        run: cp firebaseConfig.json $GITHUB_WORKSPACE
-
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
