@@ -36,9 +36,6 @@ jobs:
             appId: '${{ secrets.VITE_REACT_APP_FIREBASE_APP_ID }}'
           };" > src/firebaseConfig.js
 
-      - name: Print firebaseConfig.js
-        run: cat src/firebaseConfig.js
-
       - name: Build project
         run: npm run build
         env:
