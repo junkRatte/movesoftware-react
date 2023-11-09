@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Print Node.js version
-        run: node -v
-
       - name: Install dependencies
         run: npm install
 
@@ -38,6 +35,9 @@ jobs:
             messagingSenderId: '${{ secrets.VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}',
             appId: '${{ secrets.VITE_REACT_APP_FIREBASE_APP_ID }}'
           };" > src/firebaseConfig.js
+
+      - name: Print firebaseConfig.js
+        run: cat src/firebaseConfig.js
 
       - name: Build project
         run: npm run build
