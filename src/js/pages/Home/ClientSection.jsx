@@ -5,16 +5,15 @@ import kyan from "../../../assets/kyan.png";
 import spotify from "../../../assets/spotify.png";
 
 function ClientSection() {
+  const images = [goldline, aven, kanba, kyan, spotify];
   return (
     <section className="homepage__clients">
       <div className="content-container">
         <h5>We are trusted by the best in the world</h5>
         <div className="homepage__clients--logos">
-          <img src={goldline} />
-          <img src={aven} />
-          <img src={kanba} />
-          <img src={kyan} />
-          <img src={spotify} />
+          {images.map((image, index) => (
+            <img key={index} src={image} />
+          ))}
         </div>
       </div>
     </section>
